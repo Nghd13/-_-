@@ -1,0 +1,41 @@
+from os import system 
+system("cls")
+def Perimeter(a=1,b=1):
+    return (a+b)*2
+def Area (a=1,b=1):
+    return a*b 
+def menu ():
+    print("1\tHeight For Retangle ")
+    print("2\tWidth For Retangle ")
+    print("3\tLength For Squre ")
+    print("4\tShow Perimeter ")
+    print("5\tShow Area ")
+    print("0\tExit")
+    return input("Please Choose One Of The Numbers : ")
+def program () :
+    h = w = 1 
+    while True :
+        system("cls")
+        if h==w :
+            print(f"squre:\nlenght={w}")
+        else :
+            print(f"retangle :")
+            print(f"height={h:<8} whidth={w}")
+        print("~"*60)
+        m = menu () 
+        match m :
+            case "1" :
+                h=int(input("Please Enter The Number For The Height :"))
+            case "2" :
+                w=int(input("Please Enter The Number For The Whidth :"))
+            case "3" :
+                w=h=int(input("Please Enter The Number For The length :"))
+            case "4" :
+                print(f"perimeter={Perimeter(h,w)}")
+            case "5" :
+                print(f"Area={Area(w,h)}")
+            case "0" :
+                exit()
+        input()
+if __name__=="__main__":
+    program()
