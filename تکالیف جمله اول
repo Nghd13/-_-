@@ -38,4 +38,4 @@ def program () :
                 exit()
         input()
 if __name__=="__main__":
-    program()
+     program()
