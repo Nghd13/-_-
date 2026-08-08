@@ -1,0 +1,73 @@
+# nima gholami 
+from os import system 
+system("cls")
+a=[b for b in range(9,120,5)]
+print(a)
+_______________________________________
+# nima gholami 
+from os import system 
+system("cls")
+def test (*l) :
+    for b in l :
+        print(b,end=" ")
+        print(f"\nsum={sum(l)}")
+        
+test(2,3,4,5)
+print()
+test(2,3,4,5,7,98,4,3,56,3,23)
+_______________________________________
+# nima gholami 
+from os import system 
+system("cls")
+def r(*j) :
+    for y in j :
+        if y%6==0 :
+            print(y,end=" ")
+r(123,456,87654,1325,74312,9876,201)
+_______________________________________
+# nima gholami 
+from os import system 
+system("cls")
+def test(**a):
+    print(f"name={a["fname"]}")
+    print(f"family={a["lname"]}")
+    print(f"age={a["sen"]}")
+    print(f"city={a["shahr"]}")
+    print(f"country={a["keshvar"]}")
+test(fname="nima",lname="gholami",sen=16,shahr="tehran",keshvar="iran")
+_______________________________________
+# nima gholami 
+from os import system 
+system("cls")
+def test(**a):
+    print(f"name={a["fname"]}")
+    print(f"family={a["lname"]}")
+    print(f"age={a["sen"]}")
+    print(f"city={a["shahr"]}")
+    print(f"country={a["keshvar"]}")
+f=input("enter your name :")
+l=input("enter your family :")
+a=int(input("enter your age :"))
+c=input("enter your city :")
+c2=input("enter your country :")
+print()
+print("_"*80)
+print()
+test(fname=f,lname=l,sen=a,shahr=c,keshvar=c2)
+_______________________________________
+# nima gholami 
+from os import system 
+system("cls")
+try :
+   a=int(input("enter the number :"))
+   b=int(input("enter the number :")) 
+   res=a/b 
+except ZeroDivisionError :
+    print("ERROR: number 2 is zero")
+except ValueError:
+    print("ERROR: one of the inputs is not number")
+else : 
+    print(f"{a}/{b}={res}")
+finally :
+    Zarb=a*b
+    print(f"{a}*{b}={a*b}")
