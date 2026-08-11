@@ -23,14 +23,14 @@ print(l)
 q=list(e)
 q.append(int(input("enter the number")))
 e=tuple(q)
-_____________________________________________
+__________________________________________
 #nima gholami 
 from os import system
 system("cls")
 k=open('txt',mode='a')
 k.write(f'{input("enter the name :")}\n{input("enter the family :")}\n{input('enter the age :')}\n{input("enter the code :")}\n')
 k.close()
-_____________________________________________
+__________________________________________
 #nima gholami 
 from os import system
 system("cls")
