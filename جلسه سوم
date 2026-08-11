@@ -1,0 +1,76 @@
+from os import system 
+list=dict()
+def codding():
+    c=101
+    while True :
+        yield c 
+        c+=1
+def insert(id):
+    per=dict()
+    per['code']=id
+    per['name']=input("please enter a name :")
+    per['family']=input("please enter a family :")
+    list[id]=per 
+def show_all():
+    print(f'{'code':<5}{'first name':<10}{'last name':<15}')
+    print("#"*70)
+    for v in list.values():
+             print(f'{v['code']:<5}{v['first name']:<10}{v['last name']:<15}')
+def menu():
+    print('0\texit')
+    print('1\tinsert')
+    print('2\tshow all')
+    print('3\tsearch by the code')
+    print('4\tdelete by the code')
+    return input("please choose number =")
+def search(id):
+    found='no'
+    for k,v in list.items():
+        if k==id :
+         print(f'first name={v['name']}')
+         print(f'last name ={v['family']}')
+        found='yes'
+    return found
+def delete():
+    while True :
+       try:
+         id=int(input("enter the code for delet ="))
+       except ValueError :
+           input('{id}we cant find it ')
+       else :
+           break
+       if search(id)=='no':
+           print(f'{id}not found')
+       else:
+           r=input("do you want deleted (y/n) ?")
+           if r=='y' :
+               list.pop(id)
+               print("deleted succes")
+def program():
+    id=codding 
+    while True :
+        system("cls")
+        m=menu()
+        match m :
+            case '0' :
+                exit()
+            case "1" :
+                i=next(id)
+                insert(i)
+            case "2" :
+                show_all()
+            case "3" :
+                while True :
+                    try :
+                        id=int(input("enter the code for search :"))
+                    except ValueError:
+                        print(f'error:input is not number')
+                    else :
+                        break 
+                    if search(id)=="no" :
+                        print(f'{id}not found')
+            case "4" :
+                delete() 
+        input("press any key to continue")   
+if __name__=="__main__":
+    program()
