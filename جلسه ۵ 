@@ -1,0 +1,52 @@
+from os import system 
+system("cls")
+per = list()
+def insert ():
+    p=dict()
+    p['id']=input("enter the id ")
+    p['name']=input("enter the name ")
+    p['family']=input("enter the family")
+    per.append(p)
+def save():
+    with open('l.txt',mode='a') as h :
+        for t in per :
+            h.write(f'{t['id']}-{t['name']}-{t['family']}\n')
+def load ():
+    try:
+     with open('l.txt',mode="r") as h :
+      rows=h.readlines()
+      for row in rows:
+          w=row.replace('\n','').split('-')
+          p=dict()
+          p['id']=w[0]
+          p['name']=w[1]
+          p['family']=w[2]
+    except FileNotFoundError:
+        with open ('l.txt',mode='w') as h :
+            pass
+def menu ():
+    print(f'1\tinsert')
+    print(f'2\tshowall')
+    print(f'3\texit')
+    return input("choose number ")
+def show_all(): 
+    print(f'{'id':<5}{'name':<10}{'family':<15}\n')
+    print("$"*50)
+    for t in per :
+        print(f'{t['id']:<5}{t['name']:<10}{t['family']:<15}\n')
+def program ():
+    load()
+    while True :
+        system('cls')
+        m=menu()
+        match m :
+            case "1":
+                insert()
+            case "2" :
+                show_all()
+            case '3' :
+                save()
+                exit()
+                input("press any key to continue ")
+if __name__=="__main__":
+    program()
