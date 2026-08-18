@@ -1,0 +1,72 @@
+from os import system 
+system("cls")
+mahsool=list()
+def insert():
+    m=dict()
+    m['code']=input("enter the code")
+    m['name']=input("enter the name")
+    m['number']=input("enter the number")
+    m['price']=input("enter the price")
+    mahsool.append(m)
+def save():
+    with open('h.txt',mode='a')as d :
+        for t in mahsool:
+            d.write(f'{t['code']}-{t['name']}-{t['number']}-{t['price']}\n')
+def load ():
+    try :
+        with open('h.txt',mode='r')as d :
+            rows= d.readlines()
+            for row in rows:
+                w=row.replace('\n','').split('-')
+                m=dict()
+                m['code']=w[0]
+                m['name']=w[1]
+                m['number']=w[2]
+                m['price']=w[3]
+    except FileNotFoundError:
+        with open('h.txt',mode='a')as d :
+            pass 
+def show_all():
+    print(f'{'code':<5}{'name':<10}{'number':<15}{'price':<20}')
+    print("$"*50)
+    for t in mahsool :
+            print(f'{t['code']:<5}{t['name']:<10}{t['number']:<15}{t['price']:<20}')
+def search():
+    code=input("enter the code for search")
+    for t in mahsool:
+        if t['code']==code:
+            print(f'{t['code']:<5}{t['name']:<10}{t['number']:<15}{t['price']:<20}')
+        else :
+            print("input is mot correct")
+def add():
+    code=int(input("enter the number for add :"))
+    for t in mahsool:
+        if t['code']==code:
+            t['number']+=int(input("enter the number"))
+def menu():
+    print(f'1\tinsert')
+    print(f'2\tsearch')
+    print(f'3\tshowall')
+    print(f'4\tadd')
+    print(f'0\texit')
+    return input("choose number")
+def program():
+    load()
+    while True :
+        system('cls')
+        c=menu()
+        match c :
+            case "1":
+                insert()
+            case "2" :
+                search()
+            case "3" :
+                show_all()
+            case "4" :
+                add()
+            case "0" :
+                save()
+                exit()
+                input("press any key to continue")
+if __name__=="__main__":
+    program()
